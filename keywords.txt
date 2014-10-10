@@ -1,0 +1,5 @@
+FancyPrint	KEYWORD1
+
+
+print KEYWORD2
+

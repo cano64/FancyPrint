@@ -2,4 +2,7 @@ FancyPrint	KEYWORD1
 
 
 print KEYWORD2
+println KEYWORD2
+printMS KEYWORD2
+printHMS KEYWORD2
 

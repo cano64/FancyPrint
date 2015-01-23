@@ -6,7 +6,7 @@
 #include "FancyPrint.h"
 
 
-FancyPrint::FancyPrint(Print *p) : printer(p){
+FancyPrint::FancyPrint(Print *p) : printer(p) {
 
 }
 
@@ -38,11 +38,12 @@ void FancyPrint::print(long val, uint8_t d, uint8_t ip, uint8_t dp, char pad) {
   long ival = val / divisor;
   long tival = ival;
   uint8_t lival = 1; //length of integer part of val
-  while (tival > 10) {
+  while (tival >= 10) {
     lival++;
     tival /= 10;
   }
   
+  //lival++;
   if (isNegative) lival++; //add one for minus sign
   //print padding characters
   while (ip > lival) {
@@ -90,5 +91,23 @@ void FancyPrint::println(long val, uint8_t d, uint8_t ip, uint8_t dp, char pad) 
 void FancyPrint::println() {
   this->printer->println();
 }
+
+
+void FancyPrint::printHMS(long s, uint8_t hp, char pad) {
+
+}
+
+
+void FancyPrint::printMS(long s, uint8_t mp, char pad) {
+  int min = s / 60;
+  uint8_t ss = s - 60*min;
+  if (min < 10 && mp > 1) this->printer->print(pad);
+  this->printer->print(min);
+  this->printer->print(":");
+  if (ss < 10) this->printer->print("0");
+  this->printer->print(ss);
+}
+
+
 
 //
